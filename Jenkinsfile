@@ -49,8 +49,8 @@ pipeline {
                 } 
                 steps {
                     sh '''#!/bin/bash
-                    sudo docker tag deploy05:v1.0 dacostar/deploy05:latest
-                    sudo docker push dacostar/deploy05
+                    sudo docker tag deploy05:v1.0 dacostar/deployment05:latest
+                    sudo docker push dacostar/deployment05:latest
                     '''
                 }
             }
