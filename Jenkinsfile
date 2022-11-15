@@ -36,10 +36,10 @@ pipeline {
                 # create tarball of deployment directory
                 tar -cvf tarball.tar.gz .                
                 # stop and remove "deploy05" container if it exists
-                if [ ! "$(sudo docker ps -q -f name=deploy05)" ]; then
+                if [ "$(sudo docker ps -aq -f name=deploy05)" ]; then
                    sudo docker rm --force deploy05
                 fi
-                sudo docker-compose up
+                sudo docker build -t deploy05:1.0 .
                 '''
               }
             }
