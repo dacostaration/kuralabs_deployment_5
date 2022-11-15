@@ -39,9 +39,20 @@ pipeline {
                 if [ "$(sudo docker ps -aq -f name=deploy05)" ]; then
                    sudo docker rm --force deploy05
                 fi
-                sudo docker build -t deploy05:1.0 .
+                sudo docker build -t deploy05:v1.0 .
                 '''
               }
+            }
+            stage ('DockerPush') { 
+                agent {
+                    label 'awsDocker'
+                } 
+                steps {
+                    sh '''#!/bin/bash
+                    sudo docker tag deploy05:v1.0 dacostar/deploy05:latest
+                    sudo docker push dacostar/deploy05
+                    '''
+                }
             }
         }
 }
