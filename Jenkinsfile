@@ -30,14 +30,16 @@ pipeline {
               agent{label 'awsDocker'}
               steps {
                 sh '''#!/bin/bash
-                git clone https://github.com/dacostaration/kuralabs_deployment_5.git cd kuralabs_deployment_5
+                git clone https://github.com/dacostaration/kuralabs_deployment_5.git 
+                cd kuralabs_deployment_5
+                # cd /home/ubuntu/dep5_docker/workspace/Deployment05_main
                 # create tarball of deployment directory
                 tar -cvf tarball.tar.gz .                
                 # stop and remove "deploy05" container if it exists
-                if [ ! "$(docker ps -q -f name=deploy05)" ]; then
-                    docker rm --force deploy05
+                if [ ! "$(sudo docker ps -q -f name=deploy05)" ]; then
+                   sudo docker rm --force deploy05
                 fi
-                docker-compose up
+                sudo docker-compose up
                 '''
               }
             }
