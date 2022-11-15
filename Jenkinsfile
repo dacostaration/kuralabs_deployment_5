@@ -30,8 +30,8 @@ pipeline {
               agent{label 'awsDocker'}
               steps {
                 sh '''#!/bin/bash
-                git clone https://github.com/dacostaration/kuralabs_deployment_5.git 
-                cd kuralabs_deployment_5
+                # git clone https://github.com/dacostaration/kuralabs_deployment_5.git 
+                # cd kuralabs_deployment_5
                 # cd /home/ubuntu/dep5_docker/workspace/Deployment05_main
                 # create tarball of deployment directory
                 tar -cvf tarball.tar.gz .                
