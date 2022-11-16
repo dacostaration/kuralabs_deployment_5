@@ -1,5 +1,8 @@
 pipeline {
     agent any
+        environment {
+            dockerhub=credentials('dockerHub')
+        }
         stages {
             stage ('Build') {
                 steps {
@@ -50,6 +53,8 @@ pipeline {
                 steps {
                     sh '''#!/bin/bash
                     sudo docker tag deploy05:v1.0 dacostar/deployment05:latest
+                    echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin
+
                     sudo docker push dacostar/deployment05:latest
                     '''
                 }
