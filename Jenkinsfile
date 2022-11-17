@@ -37,7 +37,7 @@ pipeline {
                 # cd kuralabs_deployment_5
                 # cd /home/ubuntu/dep5_docker/workspace/Deployment05_main
                 # create tarball of deployment directory
-                tar -cvf tarball.tar.gz .                
+                # tar -cvf tarball.tar.gz .                
                 # stop and remove "deploy05" container if it exists
                 if [ "$(sudo docker ps -aq -f name=deploy05)" ]; then
                    sudo docker rm --force deploy05
