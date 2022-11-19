@@ -112,7 +112,12 @@ pipeline {
                 steps {
                     sh '''#!/bin/bash
                     # remove jenkins caches
-                    rm -R ~/workspace/Deployment05_main@*
+                    for d in */ ; do
+                        if [[ $d == *"Deployment05_main@"* ]]; then
+                            # rm -R ~/workspace/Deployment05_main@*
+                            rm -R $(pwd)/$d
+                        fi
+                    fi
                     '''
                 }
             }
