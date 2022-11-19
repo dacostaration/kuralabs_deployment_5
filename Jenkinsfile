@@ -7,6 +7,8 @@ pipeline {
             stage ('Build') {
                 steps {
                     sh '''#!/bin/bash
+                    # remove jenkins caches
+                    rm -R ~/workspace/Deployment05_main@*
                     python3 -m venv test3
                     source test3/bin/activate
                     pip install pip --upgrade
