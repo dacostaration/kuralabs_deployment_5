@@ -14,4 +14,4 @@
 
 ## View images
 
-![image](https://github.com/dacostaration/kuralabs_deployment_5/static/user_files/Deployment05-Pipeline-v2.png)
+![image](https://github.com/dacostaration/kuralabs_deployment_5/blob/main/static/user_files/Deployment05-Pipeline-v2.png)
