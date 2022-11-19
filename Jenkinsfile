@@ -117,7 +117,7 @@ pipeline {
                             # rm -R ~/workspace/Deployment05_main@*
                             rm -R $(pwd)/$d
                         fi
-                    fi
+                    done
                     '''
                 }
             }
